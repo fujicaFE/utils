@@ -19,13 +19,13 @@
  * @return {Boolean|String} - 返回首字母大写的数据类型（ex：Number）或者布尔值
  * @version 1.0.0
  */
-const typeOf = function (value, type) {
-  let r = typeof value;
+export const typeOf = function (value: any, type?: string) {
+  let r = typeof value
   if (r !== "object") {
     if (type) {
-      return r.charAt(0).toUpperCase() + r.slice(1, r.length) == type;
+      return r.charAt(0).toUpperCase() + r.slice(1, r.length) == type
     } else {
-      return r.charAt(0).toUpperCase() + r.slice(1, r.length);
+      return r.charAt(0).toUpperCase() + r.slice(1, r.length)
     }
   } else {
     if (type) {
@@ -33,12 +33,11 @@ const typeOf = function (value, type) {
         Object.prototype.toString
           .call(value)
           .replace(/^\[object (\S+)\]$/, "$1") == type
-      );
+      )
     } else {
       return Object.prototype.toString
         .call(value)
-        .replace(/^\[object (\S+)\]$/, "$1");
+        .replace(/^\[object (\S+)\]$/, "$1")
     }
   }
-};
-export default typeOf;
+}
