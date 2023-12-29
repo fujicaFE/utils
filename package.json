@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "jest ./test",
-    "docs": "jsdoc --configure jsdoc.config.json",
+    "docs": "typedoc",
     "generate": "npm run es && npm run build",
     "build": "rollup -c",
     "es": "tsc",

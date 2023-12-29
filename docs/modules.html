@@ -1,0 +1,90 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@fujica/utils</title><meta name="description" content="Documentation for @fujica/utils"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@fujica/utils</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@fujica/utils </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><section class="tsd-panel-group tsd-index-group"><h2>Index</h2><section class="tsd-panel tsd-index-panel"><div class="tsd-index-content"><section class="tsd-index-section "><h3>Functions</h3><ul class="tsd-index-list"><li class="tsd-kind-function"><a href="modules.html#isMobileByUa" class="tsd-kind-icon">is<wbr/>Mobile<wbr/>By<wbr/>Ua</a></li><li class="tsd-kind-function"><a href="modules.html#padZero" class="tsd-kind-icon">pad<wbr/>Zero</a></li><li class="tsd-kind-function"><a href="modules.html#typeOf" class="tsd-kind-icon">type<wbr/>Of</a></li></ul></section></div></section></section><section class="tsd-panel-group tsd-member-group "><h2>Functions</h2><section class="tsd-panel tsd-member tsd-kind-function"><a id="isMobileByUa" class="tsd-anchor"></a><h3 class="tsd-anchor-link">is<wbr/>Mobile<wbr/>By<wbr/>Ua<a href="#isMobileByUa" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">is<wbr/>Mobile<wbr/>By<wbr/>Ua<span class="tsd-signature-symbol">(</span>userAgent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in src/isMobileByUa.ts:11</li></ul></aside><div class="tsd-comment tsd-typography"><dl class="tsd-comment-tags"><dt>description</dt><dd><p><span style='color:red;font-weight:bold'>通过检测设备UA判断是否是移动端设备</span></p>
+<table>
+<thead>
+<tr>
+<th>输入值</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#39;Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1&#39;</td>
+<td>true</td>
+</tr>
+</tbody></table>
+</dd><dt>version</dt><dd><p>1.0.0</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>userAgent: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = window.navigator.userAgent</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>可以手动传入UA</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><div><p>是否是移动端设备</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function"><a id="padZero" class="tsd-anchor"></a><h3 class="tsd-anchor-link">pad<wbr/>Zero<a href="#padZero" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">pad<wbr/>Zero<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in src/padZero.ts:11</li></ul></aside><div class="tsd-comment tsd-typography"><dl class="tsd-comment-tags"><dt>description</dt><dd><p><span style='color:red;font-weight:bold'>向 &lt; 10 的整型数值进行补 0</span></p>
+<table>
+<thead>
+<tr>
+<th>输入值</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6</td>
+<td>&#39;06&#39;</td>
+</tr>
+</tbody></table>
+</dd><dt>version</dt><dd><p>1.0.0</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>n: <span class="tsd-signature-type">number</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4><div><p>返回补上0的字符串（不需要补0的直接返回字符串）</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function"><a id="typeOf" class="tsd-anchor"></a><h3 class="tsd-anchor-link">type<wbr/>Of<a href="#typeOf" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><ul class="tsd-signatures tsd-kind-function"><li class="tsd-signature tsd-kind-icon">type<wbr/>Of<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><aside class="tsd-sources"><ul><li>Defined in src/typeOf.ts:22</li></ul></aside><div class="tsd-comment tsd-typography"><dl class="tsd-comment-tags"><dt>description</dt><dd><p><span style='color:red;font-weight:bold'>检查某个数据的数据类型</span></p>
+<table>
+<thead>
+<tr>
+<th>输入值</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>123</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>&#39;abcdef&#39;</td>
+<td>String</td>
+</tr>
+<tr>
+<td>true</td>
+<td>Bollean</td>
+</tr>
+<tr>
+<td>[1, 2, 3, 4]</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>{name:&#39;wenzi&#39;, age:25}</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>console.log(&#39;this is function&#39;)</td>
+<td>Function</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>Undefined</td>
+</tr>
+<tr>
+<td>null</td>
+<td>Null</td>
+</tr>
+<tr>
+<td>new Date()</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>/^[a-zA-Z]{5,20}$/</td>
+<td>RegExp</td>
+</tr>
+<tr>
+<td>new Error()</td>
+<td>Error</td>
+</tr>
+</tbody></table>
+</dd><dt>version</dt><dd><p>1.0.0</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>value: <span class="tsd-signature-type">any</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>输入值</p>
+</div></div></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> type: <span class="tsd-signature-type">string</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4><div><p>返回首字母大写的数据类型（ex：Number）或者布尔值</p>
+</div></li></ul></section></section></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-function"><a href="modules.html#isMobileByUa" class="tsd-kind-icon">is<wbr/>Mobile<wbr/>By<wbr/>Ua</a></li><li class="tsd-kind-function"><a href="modules.html#padZero" class="tsd-kind-icon">pad<wbr/>Zero</a></li><li class="tsd-kind-function"><a href="modules.html#typeOf" class="tsd-kind-icon">type<wbr/>Of</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
