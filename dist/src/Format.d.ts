@@ -1,3 +1,3 @@
 export declare const Format: {
-    money: () => void;
+    money: (money: any, fenToYuan: any, affix?: string) => any;
 };

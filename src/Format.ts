@@ -1,18 +1,19 @@
 /**
  * @description
- * <span style='color:red;font-weight:bold'>检查某个数据的数据类型</span>
- * |输入值|输出
- * |---|---|
- * |123|Number
- * |'abcdef'|String
- * |true|Bollean
- * @param {*} value 输入值
- * @param {String} [type] 需要核对的数据类型，不填的时候则返回数据类型
- * @return {Boolean|String} 返回首字母大写的数据类型（ex：Number）或者布尔值
+ * <span style='color:red;font-weight:bold'>格式化某个数据</span>
+ * |方法名|参数|输出
+ * |---|---|---|
+ * |Format.money|(money金额本身, fenToYuan是否分转元, affix前缀)|Number
  * @version 1.0.0
  */
+import { Calc } from "./Calc"
 export const Format = {
-  money: () => {
-
+  money: (money, fenToYuan, affix = '') => {
+    if (fenToYuan) money = Calc.divide(money, 1000)
+    if (affix) {
+      return affix + money
+    } else {
+      return money
+    }
   }
 }
