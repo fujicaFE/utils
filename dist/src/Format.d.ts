@@ -1,3 +1,8 @@
 export declare const Format: {
-    money: (money: any, fenToYuan: any, affix?: string) => any;
+    money: (money: number, config: moneyConfig) => string | number;
 };
+export interface moneyConfig {
+    precision?: number;
+    fenToYuan?: boolean;
+    affix?: string;
+}

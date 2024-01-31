@@ -5,9 +5,9 @@ test('Format.money shoulb be a Function', () => {
 })
 
 test('Format.money(1500, true) should be 1.5', () => {
-    expect(Format.money(1500, true)).toBe(1.5)
+    expect(Format.money(1500, { fenToYuan: true })).toBe(1.5)
 })
 
 test('Format.money(3500, true, "￥") should be ￥3.5', () => {
-    expect(Format.money(3500, true, '￥')).toBe('￥3.5')
+    expect(Format.money(3500, { fenToYuan: true, affix: '￥' })).toBe('￥3.5')
 })
