@@ -79,6 +79,7 @@ export class WebsocketHeartBeat { // 心跳重连Websocket
       }
       message && message(data)
       // 如果获取到消息，说明连接是正常的，重置心跳检测
+      this.reconnectCount = 0 // 重置断线重连计数
       this.stopHeartBeat()
       this.startHeartBeat()
     }
