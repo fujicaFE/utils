@@ -23,7 +23,7 @@ A modern JavaScript/Typescript utility library
 
 ### Docs 📖
 
-详细用法见文档 https://fujicafe.github.io/utils/
+详细用法见文档 https://fujicafe.github.io/utils/modules.html
 
 ### How to use
 
