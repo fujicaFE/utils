@@ -4,4 +4,5 @@ export declare const Reg: {
     longtitude: RegExp;
     latitude: RegExp;
     idCard: RegExp;
+    taxnum: RegExp;
 };
