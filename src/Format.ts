@@ -5,6 +5,7 @@ import { Calc } from "./Calc"
  * |方法名|参数|输出
  * |---|---|---|
  * |Format.money|(money金额本身, config配置)|number
+ * |Format.tax|(tax税号本身)|string
  * @version 1.0.0
  */
 export const Format = {
@@ -24,6 +25,13 @@ export const Format = {
     } else {
       return money
     }
+  },
+  /**
+   * 税号修正
+   * @param taxnum 税号（纳税人识别号/纳税企业识别号）
+   */
+  tax: (taxnum) => {
+    return taxnum.toUpperCase().replace(/[^A-Z0-9]/g, '')
   }
 }
 

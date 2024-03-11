@@ -1,6 +1,6 @@
 ### Introduction
 
-![image](https://img.shields.io/badge/Version-1.0.7-green.svg)
+![image](https://img.shields.io/badge/Version-1.0.8-green.svg)
 
 A modern JavaScript/Typescript utility library
 
@@ -24,6 +24,8 @@ A modern JavaScript/Typescript utility library
 ### Docs 📖
 
 详细用法见文档 https://fujicafe.github.io/utils/modules.html
+
+GIT https://github.com/fujicaFE/utils
 
 ### How to use
 
