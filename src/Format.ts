@@ -30,7 +30,7 @@ export const Format = {
    * 税号修正
    * @param taxnum 税号（纳税人识别号/纳税企业识别号）
    */
-  tax: (taxnum) => {
+  tax: (taxnum: string) => {
     return taxnum.toUpperCase().replace(/[^A-Z0-9]/g, '')
   }
 }

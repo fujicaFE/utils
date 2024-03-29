@@ -4,5 +4,6 @@ export * from './src/isMobileByUa';
 export * from './src/padZero';
 export * from './src/Reg';
 export * from './src/typeOf';
-export * from './src/DictCode';
+export * from './src/static/DictCode';
 export * from './src/WebSocket';
+export * from './src/API';

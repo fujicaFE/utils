@@ -1,11 +1,15 @@
 import typescript from "rollup-plugin-typescript2"
 import resolve from "rollup-plugin-node-resolve"
 import { terser } from "rollup-plugin-terser"
+import json from "rollup-plugin-json"
+import commonjs from "rollup-plugin-commonjs"
+import builtins from 'rollup-plugin-node-builtins'
+
 
 export default [
   {
     input: "index.ts",
-    plugins: [resolve(), typescript(), terser()],
+    plugins: [ resolve(), builtins(), commonjs({ browser: true }), typescript(), terser(), json()],
     output: [
       {
         file: "dist/main.es.js",

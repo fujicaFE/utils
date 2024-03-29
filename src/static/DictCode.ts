@@ -7,7 +7,9 @@
  * @version 1.0.0
  */
 export const DICT_CODE = {
-  /** 出入类型 */
+  /**
+   * @description 出入类型
+   * */
   inout_type: '112',
   /** 通行凭证类型 */
   voucher_type: '131',
