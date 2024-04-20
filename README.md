@@ -1,6 +1,6 @@
 ### Introduction
 
-![image](https://img.shields.io/badge/Version-1.0.8-green.svg)
+![image](https://img.shields.io/badge/Version-1.1.0-green.svg)
 
 A modern JavaScript/Typescript utility library
 
@@ -26,6 +26,10 @@ A modern JavaScript/Typescript utility library
 详细用法见文档 https://fujicafe.github.io/utils/modules.html
 
 GIT https://github.com/fujicaFE/utils
+
+本地调试 - 软链
+工具库目录下执行 `npm run build & npm link`
+项目目录下执行`npm link @fujica/utils`
 
 ### How to use
 
