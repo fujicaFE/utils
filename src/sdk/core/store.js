@@ -1,6 +1,7 @@
 import deepClone from '../utils/deepClone'
 
 const store = {
+  // 请求配置
   uid: '',
   appId: '',
   config: {
@@ -9,7 +10,9 @@ const store = {
   },
   env: 'prod',
   debug: false,
+  // 公共数据
   dict: {}, // 字典数据缓存
+  systemConfig: {} // 系统配置缓存
 }
 export const setStore = (obj = {}) => {
   if (store.debug) {

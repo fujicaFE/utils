@@ -1,7 +1,9 @@
 import { getDict } from './getDict'
+import { getConfig } from './getConfig'
 
 const modules = {
-  getDict
+  getDict,
+  getConfig
 }
 
 export default modules
