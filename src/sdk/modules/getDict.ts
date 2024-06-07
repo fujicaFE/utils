@@ -12,7 +12,7 @@ import store from "../core/store"
  */
 export async function getDict(pid: number | string, params, options: Object = {}) {
   if (store.dict[pid]?.length) return store.dict[pid] // 有缓存取缓存
-  const res = await this.get(`/dict/getDictByPid/${pid}`, params, options) // 没有从接口拿
+  const res = await this.get(`/sys/dict/${pid}`, params, options) // 没有从接口拿
   if (res.success) {
     store.dict[pid] = res.data
     return res.data
