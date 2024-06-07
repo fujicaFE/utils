@@ -12,9 +12,12 @@ export declare const Format: {
      * 金额转换
      * @param money 金额
      * @param config 配置
+     * @param config.fenToYuan 分转元
+     * @param config.precision 精度
+     * @param config.affix 前缀
      * @returns
      */
-    money: (money: number, config: moneyConfig) => string | number;
+    money: (money: number, config: moneyConfig) => string;
     /**
      * 税号修正
      * @param taxnum 税号（纳税人识别号/纳税企业识别号）

@@ -13,18 +13,21 @@ export const Format = {
    * 金额转换
    * @param money 金额
    * @param config 配置
+   * @param config.fenToYuan 分转元
+   * @param config.precision 精度
+   * @param config.affix 前缀
    * @returns
    */
   money: (money: number, config: moneyConfig) => {
-    if (config.fenToYuan) money = Calc.divide(money, 1000)
+    let moneyStr = money + ''
+    if (config.fenToYuan) moneyStr = Calc.divide(money, 1000)
     if (config.precision || config.precision === 0) {
-      money.toFixed(config.precision)
+      moneyStr = money.toFixed(config.precision)
     }
     if (config.affix) {
-      return config.affix + String(money)
-    } else {
-      return money
+      moneyStr = config.affix + String(moneyStr)
     }
+    return moneyStr
   },
   /**
    * 税号修正
