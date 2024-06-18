@@ -13,20 +13,29 @@ export const Format = {
    * 金额转换
    * @param money 金额
    * @param config 配置
-   * @param config.fenToYuan 分转元
+   * @param config.yuan 分转元
+   * @param config.fen 元转分
    * @param config.precision 精度
    * @param config.affix 前缀
+   * @param config.suffix 后缀
    * @returns
    */
-  money: (money: number, config: moneyConfig) => {
+  money: (money: number, config: moneyConfig): String | null | undefined => {
+    // 预处理
+    if (config.yuan && config.precision == null) config = Object.assign({ precision: 2, yuan: true }, config) // 默认精度2
+    else if (config.fen && config.precision == null) config = Object.assign({ precision: 0, fen: true }, config) // 默认精度0
+    if (money == null) return money as null
     let moneyStr = money + ''
-    if (config.fenToYuan) moneyStr = Calc.divide(money, 1000)
+    // 分元转换
+    if (config.yuan) moneyStr = Calc.divide(moneyStr, 1000)
+    else if (config.fen) moneyStr = Calc.times(moneyStr, 1000)
+    // 精度控制
     if (config.precision || config.precision === 0) {
-      moneyStr = money.toFixed(config.precision)
+      moneyStr = parseFloat(moneyStr).toFixed(config.precision) + ''
     }
-    if (config.affix) {
-      moneyStr = config.affix + String(moneyStr)
-    }
+    // 前后缀
+    if (config.affix) moneyStr = config.affix + String(moneyStr)
+    if (config.suffix) moneyStr = String(moneyStr) + config.suffix
     return moneyStr
   },
   /**
@@ -46,7 +55,11 @@ export interface moneyConfig {
   /** 保留几位小数 */
   precision?: number,
   /** 是否分转元 */
-  fenToYuan?: boolean,
+  yuan?: boolean,
+  /** 是否元转分 */
+  fen?: boolean,
   /** 前缀 */
   affix?: string,
+  /** 后缀 */
+  suffix?: string,
 }
