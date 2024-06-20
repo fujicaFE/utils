@@ -20,7 +20,7 @@ export const Format = {
    * @param config.suffix 后缀
    * @returns
    */
-  money: (money: number, config: moneyConfig): String | null | undefined => {
+  money: (money: number, config: moneyConfig = {}): String | null | undefined => {
     // 预处理
     if (config.yuan && config.precision == null) config = Object.assign({ precision: 2, yuan: true }, config) // 默认精度2
     else if (config.fen && config.precision == null) config = Object.assign({ precision: 0, fen: true }, config) // 默认精度0
