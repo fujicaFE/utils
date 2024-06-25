@@ -27,8 +27,8 @@ export const Format = {
     if (money == null) return money as null
     let moneyStr = money + ''
     // 分元转换
-    if (config.yuan) moneyStr = Calc.divide(moneyStr, 1000)
-    else if (config.fen) moneyStr = Calc.times(moneyStr, 1000)
+    if (config.yuan) moneyStr = Calc.divide(moneyStr, 100)
+    else if (config.fen) moneyStr = Calc.times(moneyStr, 100)
     // 精度控制
     if (config.precision || config.precision === 0) {
       moneyStr = parseFloat(moneyStr).toFixed(config.precision) + ''
