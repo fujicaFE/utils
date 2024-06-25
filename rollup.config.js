@@ -13,7 +13,17 @@ export default [
     output: [
       {
         file: "dist/main.es.js",
-        format: "es",
+        format: "esm",
+        name: "main",
+      },
+      {
+        file: "dist/main.mjs",
+        format: "esm",
+        name: "main",
+      },
+      {
+        file: "dist/main.cjs",
+        format: "cjs",
         name: "main",
       },
       {

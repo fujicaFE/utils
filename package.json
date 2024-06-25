@@ -5,10 +5,6 @@
   "main": "./dist/main.es.js",
   "module": "./dist/main.es.js",
   "types": "./dist/index.d.ts",
-  "exports": {
-    "import": "./index.mjs",
-    "default": "./index.js"
-  },
   "scripts": {
     "test": "jest ./test",
     "docs": "typedoc",

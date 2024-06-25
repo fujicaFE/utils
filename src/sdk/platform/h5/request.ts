@@ -1,5 +1,4 @@
-// import axios from 'axios'
-const axios = require('axios/dist/axios')
+import axios from '../../../vendor/axios'
 import store from '../../core/store'
 import {
   requestInterceptor,
