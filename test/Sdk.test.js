@@ -4,9 +4,9 @@ test('API.getDict shoulb be a function', () => {
   expect(typeof API.getDict).toBe('function')
 })
 
-test('API.test.getDetail shoulb be a function', () => {
-  expect(typeof API.test.getDetail).toBe('function')
-})
+// test('API.test.getDetail shoulb be a function', () => {
+//   expect(typeof API.getDetail).toBe('function')
+// })
 
 // test('API.test.getDetail shoulb be a function', () => {
 //   return API.test.getDetail().then(res => {

@@ -1,5 +1,5 @@
 import { DICT_CODE } from "../dist/main.es"
 
-test('DICT_CODE.abnormal_type shoulb be `185`', () => {
-    expect(DICT_CODE.abnormal_type).toBe('185')
+test('DICT_CODE.paySource shoulb be `paySource`', () => {
+    expect(DICT_CODE.paySource).toBe('paySource')
 })
