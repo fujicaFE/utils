@@ -19,7 +19,7 @@ export declare const Format: {
      * @param config.suffix 后缀
      * @returns
      */
-    money: (money: number, config?: moneyConfig) => String | null | undefined;
+    money: (money: any, config?: moneyConfig) => String | null | undefined;
     /**
      * 税号修正
      * @param taxnum 税号（纳税人识别号/纳税企业识别号）

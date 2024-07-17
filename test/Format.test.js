@@ -27,3 +27,7 @@ test('Format.money(undefined) should be undefined', () => {
 test('Format.money(null) should be null', () => {
     expect(Format.money(null)).toBe(null)
 })
+
+test('Format.money("未查询") should be null', () => {
+    expect(Format.money("未查询")).toBe("未查询")
+})
