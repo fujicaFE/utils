@@ -1,6 +1,6 @@
 {
   "name": "@fujica/utils",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "catching fish in fujica",
   "main": "./dist/main.es.js",
   "module": "./dist/main.es.js",
