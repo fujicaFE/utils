@@ -20,11 +20,12 @@ export const Format = {
    * @param config.suffix 后缀
    * @returns
    */
-  money: (money: number, config: moneyConfig = {}): String | null | undefined => {
+  money: (money: any, config: moneyConfig = {}): String | null | undefined => {
     // 预处理
     if (config.yuan && config.precision == null) config = Object.assign({ precision: 2, yuan: true }, config) // 默认精度2
     else if (config.fen && config.precision == null) config = Object.assign({ precision: 0, fen: true }, config) // 默认精度0
     if (money == null) return money as null
+    if (isNaN(money)) return money // 非数字直接返回
     let moneyStr = money + ''
     // 分元转换
     if (config.yuan) moneyStr = Calc.divide(moneyStr, 100)

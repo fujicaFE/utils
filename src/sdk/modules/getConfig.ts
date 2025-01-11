@@ -6,7 +6,7 @@ import store from "../core/store"
  * |输入值|输出
  * |---|---|
  * |'loginShowEyeIcon'|[]|
- * @param {string} pid 系统配置code
+ * @param {string} code 系统配置code
  * @returns {string} 返回对应系统配置内容
  * @version 1.0.0
  */

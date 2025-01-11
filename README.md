@@ -1,6 +1,6 @@
 ### Introduction
 
-![image](https://img.shields.io/badge/Version-1.1.3-green.svg)
+![image](https://img.shields.io/badge/Version-1.1.6-green.svg)
 
 A modern JavaScript/Typescript utility library
 
