@@ -73,22 +73,22 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
-      - name: Create GitHub Release
-        if: steps.version-check.outputs.should_publish == 'true'
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v${{ steps.version-check.outputs.current_version }}
-          name: Release v${{ steps.version-check.outputs.current_version }}
-          body: |
-            ## Changes in v${{ steps.version-check.outputs.current_version }}
+      # - name: Create GitHub Release
+      #   if: steps.version-check.outputs.should_publish == 'true'
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     tag_name: v${{ steps.version-check.outputs.current_version }}
+      #     name: Release v${{ steps.version-check.outputs.current_version }}
+      #     body: |
+      #       ## Changes in v${{ steps.version-check.outputs.current_version }}
             
-            自动发布到 npm 的新版本。
+      #       自动发布到 npm 的新版本。
             
-            ### Package Info
-            - Package: @fujica/utils
-            - Version: ${{ steps.version-check.outputs.current_version }}
-            - NPM: https://www.npmjs.com/package/@fujica/utils
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #       ### Package Info
+      #       - Package: @fujica/utils
+      #       - Version: ${{ steps.version-check.outputs.current_version }}
+      #       - NPM: https://www.npmjs.com/package/@fujica/utils
+      #     draft: false
+      #     prerelease: false
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
