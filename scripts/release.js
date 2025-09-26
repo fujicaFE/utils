@@ -119,8 +119,10 @@ class ReleaseManager {
 
   pushToRemote() {
     const currentBranch = this.getCurrentBranch();
-    this.log('🚀', `推送到远程仓库 (${currentBranch})...`);
-    this.exec(`git push origin ${currentBranch}`, '推送变更');
+    const remotes = this.execSilent('git remote').split('\n').filter(r => r.trim());
+    const remoteName = remotes.includes('origin') ? 'origin' : (remotes[0] || 'origin');
+    this.log('🚀', `推送到远程仓库 (${remoteName}/${currentBranch})...`);
+    this.exec(`git push ${remoteName} ${currentBranch}`, '推送变更');
   }
 
   showSummary(newVersion) {
@@ -154,7 +156,10 @@ class ReleaseManager {
       
       // 拉取最新代码
       this.log('📥', '拉取最新代码...');
-      this.exec('git pull origin ' + currentBranch, '更新本地代码');
+      const remotes = this.execSilent('git remote').split('\n').filter(r => r.trim());
+      const remoteName = remotes.includes('origin') ? 'origin' : (remotes[0] || 'origin');
+      this.log('🔗', `使用远程仓库: ${remoteName}`);
+      this.exec(`git pull ${remoteName} ${currentBranch}`, '更新本地代码');
       
       // 运行测试
       this.runTests();

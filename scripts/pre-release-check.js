@@ -100,7 +100,14 @@ class PreReleaseChecker {
 
   checkRemoteStatus() {
     try {
-      this.exec('git fetch');
+      const remotes = this.exec('git remote');
+      if (!remotes) {
+        this.warning('没有配置远程仓库');
+        return;
+      }
+      const remoteList = remotes.split('\n').filter(r => r.trim());
+      const remoteName = remoteList.includes('origin') ? 'origin' : (remoteList[0] || 'origin');
+      this.exec(`git fetch ${remoteName}`);
       const status = this.exec('git status -uno');
       
       if (status.includes('Your branch is behind')) {

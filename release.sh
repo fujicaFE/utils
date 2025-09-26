@@ -19,7 +19,14 @@ fi
 # 切换到 main 分支
 echo "📦 切换到 main 分支..."
 git checkout main
-git pull origin main
+
+# 检查远程仓库名称
+REMOTE_NAME=$(git remote | head -n1)
+if [ -z "$REMOTE_NAME" ]; then
+    REMOTE_NAME="origin"
+fi
+echo "🔗 使用远程仓库: $REMOTE_NAME"
+git pull $REMOTE_NAME main
 
 # 提交现有变更
 echo "💾 提交现有变更..."
@@ -54,8 +61,8 @@ git add package.json README.md
 git commit -m "chore: bump version to v$NEW_VERSION"
 
 # 推送到远程仓库
-echo "🚀 推送到远程仓库..."
-git push origin main
+echo "🚀 推送到远程仓库 ($REMOTE_NAME)..."
+git push $REMOTE_NAME main
 
 echo "✅ 发布流程完成！"
 echo "📦 GitHub Actions 将自动发布到 NPM"

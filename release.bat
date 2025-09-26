@@ -23,7 +23,13 @@ if not "%STATUS%"=="" (
 REM 切换到 main 分支
 echo 📦 切换到 main 分支...
 git checkout main
-git pull origin main
+
+REM 检查远程仓库名称
+for /f "delims=" %%i in ('git remote') do set REMOTE_NAME=%%i & goto :found_remote
+set REMOTE_NAME=origin
+:found_remote
+echo 🔗 使用远程仓库: %REMOTE_NAME%
+git pull %REMOTE_NAME% main
 
 REM 提交现有变更
 echo 💾 提交现有变更...
@@ -72,8 +78,8 @@ git add package.json README.md
 git commit -m "chore: bump version to v%NEW_VERSION%"
 
 REM 推送到远程仓库
-echo 🚀 推送到远程仓库...
-git push origin main
+echo 🚀 推送到远程仓库 (%REMOTE_NAME%)...
+git push %REMOTE_NAME% main
 
 echo ✅ 发布流程完成！
 echo 📦 GitHub Actions 将自动发布到 NPM
