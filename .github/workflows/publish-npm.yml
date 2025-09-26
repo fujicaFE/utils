@@ -1,0 +1,84 @@
+name: Publish to NPM
+
+on:
+  # 当推送到 main 分支时触发
+  push:
+    branches:
+      - main
+    # 只有当 package.json 中的 version 发生变化时才触发
+    paths:
+      - 'package.json'
+  
+  # 手动触发
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run tests
+        run: npm test
+        
+      - name: Build project
+        run: npm run generate
+        
+      - name: Sync version in README
+        run: npm run sync-version
+        
+      - name: Check if version changed
+        id: version-check
+        run: |
+          # 获取当前版本
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          
+          # 检查这个版本是否已经发布
+          NPM_VERSION=$(npm view @fujica/utils version 2>/dev/null || echo "0.0.0")
+          echo "npm_version=$NPM_VERSION" >> $GITHUB_OUTPUT
+          
+          if [ "$CURRENT_VERSION" != "$NPM_VERSION" ]; then
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+            echo "Version changed from $NPM_VERSION to $CURRENT_VERSION"
+          else
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+            echo "Version $CURRENT_VERSION already exists on npm"
+          fi
+        
+      - name: Publish to NPM
+        if: steps.version-check.outputs.should_publish == 'true'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: Create GitHub Release
+        if: steps.version-check.outputs.should_publish == 'true'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version-check.outputs.current_version }}
+          release_name: Release v${{ steps.version-check.outputs.current_version }}
+          body: |
+            ## Changes in v${{ steps.version-check.outputs.current_version }}
+            
+            自动发布到 npm 的新版本。
+            
+            ### Package Info
+            - Package: @fujica/utils
+            - Version: ${{ steps.version-check.outputs.current_version }}
+            - NPM: https://www.npmjs.com/package/@fujica/utils
+          draft: false
+          prerelease: false
