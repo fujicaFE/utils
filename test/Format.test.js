@@ -8,6 +8,11 @@ test('Format.money(150, { yuan: true }) should be 1.5', () => {
     expect(Format.money(150, { yuan: true })).toBe('1.50')
 })
 
+
+test('Format.money(150) should be 150', () => {
+    expect(Format.money(150)).toBe('150')
+})
+
 test('Format.money(150, { precision: 2 }) should be 150.00', () => {
     expect(Format.money(150, { precision: 2 })).toBe('150.00')
 })
