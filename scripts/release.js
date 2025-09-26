@@ -63,6 +63,15 @@ class ReleaseManager {
     return packageJson.version;
   }
 
+  async checkVersionPublished(version) {
+    try {
+      const result = this.execSilent(`npm view @fujica/utils@${version} version`);
+      return result === version;
+    } catch (error) {
+      return false;
+    }
+  }
+
   validateVersionType() {
     if (!this.validTypes.includes(this.versionType)) {
       this.error(`无效的版本类型: ${this.versionType}. 支持的类型: ${this.validTypes.join(', ')}`);
@@ -95,20 +104,22 @@ class ReleaseManager {
     this.exec('npm run generate', '生成构建产物');
   }
 
-  generateDocs() {
-    this.log('📚', '生成文档...');
-    this.exec('npm run docs', '生成 TypeScript 文档');
-  }
-
-  updateVersion() {
-    const oldVersion = this.getCurrentVersion();
-    this.log('📈', `更新版本号 (${this.versionType}): ${oldVersion} -> ?`);
+  async updateVersion() {
+    const currentVersion = this.getCurrentVersion();
     
-    this.exec(`npm version ${this.versionType} --no-git-tag-version`, '更新版本号');
+    // 检查当前版本是否已发布
+    const isPublished = await this.checkVersionPublished(currentVersion);
     
-    const newVersion = this.getCurrentVersion();
-    this.log('🎉', `版本更新完成: ${oldVersion} -> ${newVersion}`);
-    return newVersion;
+    if (isPublished) {
+      this.log('📈', `更新版本号 (${this.versionType}): ${currentVersion} -> ?`);
+      this.exec(`npm version ${this.versionType} --no-git-tag-version`, '更新版本号');
+      const newVersion = this.getCurrentVersion();
+      this.log('🎉', `版本更新完成: ${currentVersion} -> ${newVersion}`);
+      return newVersion;
+    } else {
+      this.log('ℹ️', `当前版本 ${currentVersion} 尚未发布，跳过版本更新`);
+      return currentVersion;
+    }
   }
 
   syncVersionInFiles() {
@@ -172,11 +183,8 @@ class ReleaseManager {
       // 构建项目
       this.buildProject();
       
-      // 生成文档
-      this.generateDocs();
-      
       // 更新版本
-      const newVersion = this.updateVersion();
+      const newVersion = await this.updateVersion();
       
       // 同步版本号
       this.syncVersionInFiles();
@@ -216,9 +224,8 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
 功能特性:
   ✅ 自动提交现有变更
   ✅ 运行测试和构建
-  ✅ 生成最新文档
-  ✅ 更新版本号
-  ✅ 同步 README.md 版本
+  ✅ 智能版本检查（已发布版本才更新）
+  ✅ 同步 README.md 版本和生成文档
   ✅ 提交并推送到远程
   ✅ 触发 GitHub Actions 自动发布
 `);

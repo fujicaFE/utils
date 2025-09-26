@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // 读取 package.json 获取当前版本
 const packagePath = path.join(__dirname, '..', 'package.json');
@@ -30,6 +31,15 @@ try {
     console.log(`✅ README.md 版本号已更新为 ${currentVersion}`);
   } else {
     console.log(`ℹ️  README.md 版本号已经是最新的`);
+  }
+  
+  // 生成文档
+  console.log('📚 生成最新文档...');
+  try {
+    execSync('npm run docs', { stdio: 'inherit' });
+    console.log('✅ 文档生成完成');
+  } catch (error) {
+    console.warn('⚠️  文档生成失败:', error.message);
   }
   
 } catch (error) {

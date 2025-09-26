@@ -1,6 +1,6 @@
 ### Introduction
 
-![image](https://img.shields.io/badge/Version-1.1.8-green.svg)
+![image](https://img.shields.io/badge/Version-1.1.7-green.svg)
 [![CI](https://github.com/fujicaFE/utils/actions/workflows/ci.yml/badge.svg)](https://github.com/fujicaFE/utils/actions/workflows/ci.yml)
 [![NPM Publish](https://github.com/fujicaFE/utils/actions/workflows/publish-npm.yml/badge.svg)](https://github.com/fujicaFE/utils/actions/workflows/publish-npm.yml)
 [![npm version](https://img.shields.io/npm/v/@fujica/utils.svg)](https://www.npmjs.com/package/@fujica/utils)
