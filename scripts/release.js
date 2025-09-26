@@ -95,6 +95,11 @@ class ReleaseManager {
     this.exec('npm run generate', '生成构建产物');
   }
 
+  generateDocs() {
+    this.log('📚', '生成文档...');
+    this.exec('npm run docs', '生成 TypeScript 文档');
+  }
+
   updateVersion() {
     const oldVersion = this.getCurrentVersion();
     this.log('📈', `更新版本号 (${this.versionType}): ${oldVersion} -> ?`);
@@ -113,8 +118,8 @@ class ReleaseManager {
 
   commitVersionChanges(newVersion) {
     this.log('💾', '提交版本变更...');
-    this.exec('git add package.json README.md', '暂存版本文件');
-    this.exec(`git commit -m "chore: bump version to v${newVersion}"`, '提交版本变更');
+    this.exec('git add package.json README.md docs/', '暂存版本文件和文档');
+    this.exec(`git commit -m "chore: bump version to v${newVersion} and update docs"`, '提交版本变更和文档');
   }
 
   pushToRemote() {
@@ -167,6 +172,9 @@ class ReleaseManager {
       // 构建项目
       this.buildProject();
       
+      // 生成文档
+      this.generateDocs();
+      
       // 更新版本
       const newVersion = this.updateVersion();
       
@@ -208,6 +216,7 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
 功能特性:
   ✅ 自动提交现有变更
   ✅ 运行测试和构建
+  ✅ 生成最新文档
   ✅ 更新版本号
   ✅ 同步 README.md 版本
   ✅ 提交并推送到远程
